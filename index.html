@@ -4,8 +4,50 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Document</title>
+          <style>
+          body {
+              font-family: Arial, sans-serif;
+              margin: 40px;
+          }
+          .container {
+              max-width: 300px;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #ccc;
+              border-radius: 8px;
+              box-shadow: 0 2px 8px #eee;
+              background: #fafafa;
+          }
+          input, button {
+              padding: 8px;
+              margin: 8px 0;
+              width: 100%;
+              box-sizing: border-box;
+          }
+          #result {
+              margin-top: 12px;
+              font-weight: bold;
+          }
+          </style>
 </head>
 <body>
-       hello too you   
+       <div class="container">
+           <label for="numberInput">Enter a number:</label>
+           <input type="number" id="numberInput" />
+           <button onclick="calculateSquare()">Square</button>
+           <div id="result"></div>
+       </div>
+       <script>
+       function calculateSquare() {
+           const num = document.getElementById('numberInput').value;
+           const resultDiv = document.getElementById('result');
+           if (num === '') {
+               resultDiv.textContent = 'Please enter a number.';
+               return;
+           }
+           const square = Number(num) * Number(num);
+           resultDiv.textContent = `Square: ${square}`;
+       }
+       </script>
 </body>
 </html>
